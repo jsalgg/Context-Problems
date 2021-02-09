@@ -31,5 +31,20 @@ Dog.makeJet = function() {
 	return new this('Jet')
 }
 
+Dog.prototype.speak = function(str) {
+	return `${this.name} says ${str}`
+};
+
+Dog.prototype.changeName = function(name) {
+	this.name = name;
+	return this.name;
+};
+
+let dog1 = Dog.makeJet(); // returns an object 
+
+console.log(dog1.name); // Jet
+console.log(dog1.speak("hello")); // Jet says hello
+console.log(dog1.changeName("Freyja")); // Freyja
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = Dog;

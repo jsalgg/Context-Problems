@@ -22,8 +22,26 @@ console.log(changeContext(getSecret, map)); // prints "I don't know where I'm go
 
 ***********************************************************************/
 
-// your code here!
+function changeContext(func, obj) {
+  let boundObj = func.bind(obj);
+  return boundObj();
+};
 
+
+let map = {
+  secret: "I don't know where I'm going",
+};
+
+let bat = {
+  secret: "I'm scared of the dark",
+};
+
+function getSecret() {
+  return this.secret;
+}
+
+console.log(changeContext(getSecret, bat)); // prints "I'm scared of the dark"
+console.log(changeContext(getSecret, map)); // prints "I don't know where I'm going"
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {

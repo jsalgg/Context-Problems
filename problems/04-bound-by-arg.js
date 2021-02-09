@@ -19,7 +19,23 @@ console.log(spyCar("potato")); // prints "I spy a car"
 
 ***********************************************************************/
 
-// your code here!
+function boundByAnArg(func, arg) {
+  let bound = func.bind(null, arg);
+  return bound;
+};
+
+
+function iSpy(thing) {
+  return "I spy a " + thing;
+}
+
+let spyTree = boundByAnArg(iSpy, "tree");
+console.log(spyTree()); // prints "I spy a tree"
+console.log(spyTree("car")); // prints "I spy a tree"
+
+let spyCar = boundByAnArg(iSpy, "car");
+console.log(spyCar()); // prints "I spy a car"
+console.log(spyCar("potato")); // prints "I spy a car"
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
