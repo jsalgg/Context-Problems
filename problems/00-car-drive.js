@@ -21,8 +21,17 @@ console.log(car) // -> {speed: 100, drive: ƒ}
 ***********************************************************************/
 
 function Car() {
-	this.speed = 0
+  this.speed = 0;
 }
+
+Car.prototype.drive = function (newSpeed) {
+  this.speed = newSpeed;
+  return newSpeed;
+};
+
+let car = new Car();
+car.drive(10); // => returns 10
+console.log(car); // => {speed: 10, drive: ƒ}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = Car;
