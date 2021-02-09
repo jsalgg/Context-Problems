@@ -35,6 +35,25 @@ console.log(bowSandy("Joe", "Nico")); // prints "You bowed to Sandy and Joe and 
 
 // your code here!
 
+function allTheArgs(func, ...args) {
+  let bound = func.bind(null, ...args);
+  return bound;
+}
+
+//Example 1:
+const adder = (...nums) => nums.reduce((num, sum) => sum + num);
+
+let addFive = allTheArgs(adder, 5);
+
+console.log(addFive()); // prints 5
+console.log(addFive(5)); // prints 10
+console.log(addFive(10)); // prints 15
+
+let addTwenty = allTheArgs(adder, 5, 10, 5);
+
+console.log(addTwenty(5)); // prints 25
+console.log(addTwenty(10)); // prints 30
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
