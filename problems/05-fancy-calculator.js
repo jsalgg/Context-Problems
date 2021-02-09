@@ -18,13 +18,28 @@ fancyCalculator.total // => returns 1
 ***********************************************************************/
 
 function FancyCalculator() {
-	this.total = 0;
+  this.total = 0;
 }
 
-FancyCalculator.prototype.setTotal = function(num) {
-	this.total = num;
-	return this.total;
-}
+FancyCalculator.prototype.setTotal = function (num) {
+  this.total = num;
+  return this.total;
+};
+
+FancyCalculator.prototype.modulo = function (num) {
+  this.total %= num;
+  return this.total;
+};
+FancyCalculator.prototype.squared = function (num) {
+  this.total *= this.total;
+  return this.total;
+};
+
+let fancyCalculator = new FancyCalculator();
+console.log(fancyCalculator.setTotal(5)); // => returns 5
+console.log(fancyCalculator.squared()); // => returns 25
+console.log(fancyCalculator.modulo(4)); // => returns 1
+console.log(fancyCalculator.total); // => returns 1
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 module.exports = FancyCalculator;
